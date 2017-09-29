@@ -1,8 +1,8 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE TypeOperators #-}
 
-import SessionTypes
-import SessionTypes.Visualize
+import Control.SessionTypes
+import Control.SessionTypes.Visualize
 import Data.Proxy (Proxy (..))
 
 

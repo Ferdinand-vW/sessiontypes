@@ -3,9 +3,9 @@
 {-# LANGUAGE TypeOperators #-}
 module Test.Program.FileServer where
 
-import SessionTypes
-import SessionTypes.Indexed
-import SessionTypes.Debug
+import Control.SessionTypes
+import Control.SessionTypes.Indexed
+import Control.SessionTypes.Debug
 
 import System.Directory
 

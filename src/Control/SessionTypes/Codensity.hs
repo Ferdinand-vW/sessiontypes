@@ -1,11 +1,11 @@
 {-# LANGUAGE RankNTypes       #-}
 {-# LANGUAGE RebindableSyntax #-}
 -- | This module defines a new type for constructing more efficient `STTerm` programs.
-module SessionTypes.Codensity where
+module Control.SessionTypes.Codensity where
 
-import SessionTypes.STTerm
-import SessionTypes.MonadSession
-import SessionTypes.Indexed hiding (abs)
+import Control.SessionTypes.STTerm
+import Control.SessionTypes.MonadSession
+import Control.SessionTypes.Indexed hiding (abs)
 
 -- | We define an indexed codensity monad that allows us to reduce quadratic complexity
 -- from repeated use of (>>=) in a session typed program to linear complexity.

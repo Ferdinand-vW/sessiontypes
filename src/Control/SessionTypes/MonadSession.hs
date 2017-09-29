@@ -10,7 +10,7 @@
 {-# LANGUAGE PolyKinds #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 -- | This module provides an interface for writing session typed programs
-module SessionTypes.MonadSession (
+module Control.SessionTypes.MonadSession (
   -- * Primitives
   MonadSession (..),
   -- * Combinators
@@ -32,8 +32,8 @@ module SessionTypes.MonadSession (
   eps0
 ) where
 
-import SessionTypes.Indexed as I
-import SessionTypes.Types
+import Control.SessionTypes.Indexed as I
+import Control.SessionTypes.Types
 
 import Data.Function (fix)
 import Data.Typeable (Proxy(..))

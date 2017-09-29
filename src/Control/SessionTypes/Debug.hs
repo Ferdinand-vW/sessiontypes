@@ -21,7 +21,7 @@
 -- The current structure of the `Lift` constructor does not allow us to purely evaluate a `Lift`.
 --
 -- As such a session typed program may not contain a lift for it to be purely evaluated. See `runM` as an alternative.
-module SessionTypes.Debug (
+module Control.SessionTypes.Debug (
   -- * Pure
   run,
   runAll,
@@ -35,8 +35,8 @@ module SessionTypes.Debug (
   Output(..)
 ) where
 
-import           SessionTypes
-import qualified SessionTypes.Indexed as I
+import           Control.SessionTypes
+import qualified Control.SessionTypes.Indexed as I
 
 import Control.DeepSeq (NFData, rnf)
 import Data.Kind (Type)

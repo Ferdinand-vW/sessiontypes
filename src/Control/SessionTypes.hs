@@ -9,15 +9,15 @@
 -- * `STTerm`: A GADT representing the terms of the DSL. The constructors represent the different session types and are annotated with session types.
 -- * `ST`: A protomoted data type describing the different session types.
 -- * `MonadSession`: A type class exposing the interface of the DSL.
--- * "SessionTypes.Indexed": A custom prelude module replacing common type classes with indexed type classes
+-- * "Control.SessionTypes.Indexed": A custom prelude module replacing common type classes with indexed type classes
 --
 -- This package also implements a couple interpreters that evaluate an abstract-syntax tree consisting of `STTerm` constructors:
 --
--- * "SessionTypes.Debug": Purely evaluation
--- * "SessionTypes.Interactive": Interactive evaluation
--- * "SessionTypes.Normalize": Rewrites `STTerm` programs to a normal form
--- * "SessionTypes.Visualize": Visualizes a session type
-module SessionTypes (
+-- * "Control.SessionTypes.Debug": Purely evaluation
+-- * "Control.SessionTypes.Interactive": Interactive evaluation
+-- * "Control.SessionTypes.Normalize": Rewrites `STTerm` programs to a normal form
+-- * "Control.SessionTypes.Visualize": Visualizes a session type
+module Control.SessionTypes (
   -- * STTerm
   STTerm (..),
   inferIdentity,
@@ -78,11 +78,11 @@ module SessionTypes (
   Append
 ) where
 
-import SessionTypes.STTerm (
+import Control.SessionTypes.STTerm (
   STTerm (..),
   inferIdentity
   )
-import SessionTypes.Types (
+import Control.SessionTypes.Types (
   ST(..),
   Cap(..),
   GetST,
@@ -111,7 +111,7 @@ import SessionTypes.Types (
   TypeEqList,
   Append
   )
-import SessionTypes.MonadSession (
+import Control.SessionTypes.MonadSession (
   MonadSession (..),
   empty,
   empty0,

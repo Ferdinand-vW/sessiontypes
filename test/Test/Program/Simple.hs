@@ -3,8 +3,8 @@
 {-# LANGUAGE TypeOperators #-}
 module Test.Program.Simple where
 
-import SessionTypes
-import SessionTypes.Indexed
+import Control.SessionTypes
+import Control.SessionTypes.Indexed
 
 prog_sendRecv :: MonadSession m => m ('Cap ctx (String :!> Bool :?> Eps)) ('Cap ctx Eps) Bool
 prog_sendRecv = do

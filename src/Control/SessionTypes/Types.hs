@@ -6,7 +6,7 @@
 -- | This module provides a collection of types and type families.
 --
 -- Specifically it defines the session type data type, capability data type and type families that compute using session types or capabilities as arguments.
-module SessionTypes.Types (
+module Control.SessionTypes.Types (
   -- * Session Types
   ST(..),
   Cap(..),

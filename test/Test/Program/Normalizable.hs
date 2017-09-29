@@ -3,8 +3,8 @@
 {-# LANGUAGE TypeOperators #-}
 module Test.Program.Normalizable where
 
-import SessionTypes
-import SessionTypes.Indexed
+import Control.SessionTypes
+import Control.SessionTypes.Indexed
 
 left_nested_offer :: MonadSession m => m ('Cap ctx (Off '[Off '[Off '[Eps], Eps], Eps])) ('Cap ctx Eps) ()
 left_nested_offer =

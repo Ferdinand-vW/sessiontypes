@@ -1,7 +1,7 @@
 {-# LANGUAGE ScopedTypeVariables #-}
-import SessionTypes.Interactive
-import qualified SessionTypes.Indexed as I
-import SessionTypes
+import Control.SessionTypes.Interactive
+import qualified Control.SessionTypes.Indexed as I
+import Control.SessionTypes
 import Test.Program.FileServer
 import Control.Monad.Catch
 

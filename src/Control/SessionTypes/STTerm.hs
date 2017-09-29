@@ -14,20 +14,20 @@
 -- By passing a constructor to another constructor as an argument their session types are joined
 -- to form a larger session type.
 --
--- We do not recommend explicitly composing the `STTerm` constructors. Instead make use of the functions defined in the "SessionTypes.MonadSession" module.
+-- We do not recommend explicitly composing the `STTerm` constructors. Instead make use of the functions defined in the "Control.SessionTypes.MonadSession" module.
 --
 -- Of course a `STTerm` program in itself is not very useful as it is devoid of any semantics.
 -- However, an interpreter function can give meaning to a `STTerm` program. 
 -- 
--- We define a couple in this library: "SessionTypes.Debug", "SessionTypes.Interactive", "SessionTypes.Normalize" and "SessionTypes.Visualize".
-module SessionTypes.STTerm (
+-- We define a couple in this library: "Control.SessionTypes.Debug", "Control.SessionTypes.Interactive", "Control.SessionTypes.Normalize" and "Control.SessionTypes.Visualize".
+module Control.SessionTypes.STTerm (
   STTerm (..),
   inferIdentity
 ) where
 
-import           SessionTypes.MonadSession
-import           SessionTypes.Types
-import qualified SessionTypes.Indexed as I
+import           Control.SessionTypes.MonadSession
+import           Control.SessionTypes.Types
+import qualified Control.SessionTypes.Indexed as I
 
 import Control.Monad.IO.Class
 import Data.Functor.Identity (Identity)

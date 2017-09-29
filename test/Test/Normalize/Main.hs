@@ -1,7 +1,7 @@
 {-# LANGUAGE DataKinds #-}
-import SessionTypes
-import SessionTypes.Debug
-import SessionTypes.Normalize
+import Control.SessionTypes
+import Control.SessionTypes.Debug
+import Control.SessionTypes.Normalize
 
 import Test.Program.Normalizable
 import Test.Hspec

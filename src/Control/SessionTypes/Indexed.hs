@@ -32,7 +32,7 @@
 -- We do not want to force importing Prelude if you use `RebindableSyntax`. 
 -- Therefore this module also exports Prelude that hides functions already defined by
 -- the indexed type classes.
-module SessionTypes.Indexed (
+module Control.SessionTypes.Indexed (
   -- * Classes
   IxFunctor(..),
   IxApplicative(..),

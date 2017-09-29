@@ -9,15 +9,15 @@
 -- Using this module the user will act as one of the actors in the session by suppling values to a receive
 --
 -- and selecting a branch for offerings.
-module SessionTypes.Interactive (
+module Control.SessionTypes.Interactive (
   interactive,
   interactiveStep
 ) where
 
-import SessionTypes.STTerm
-import SessionTypes.Types
-import qualified SessionTypes.Indexed as I
-import SessionTypes.MonadSession
+import Control.SessionTypes.STTerm
+import Control.SessionTypes.Types
+import qualified Control.SessionTypes.Indexed as I
+import Control.SessionTypes.MonadSession
 
 import Control.Monad.Trans.Maybe (MaybeT(..), runMaybeT)
 import Control.Monad.IO.Class    (MonadIO, liftIO)

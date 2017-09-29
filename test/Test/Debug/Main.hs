@@ -1,5 +1,5 @@
-import SessionTypes
-import SessionTypes.Debug
+import Control.SessionTypes
+import Control.SessionTypes.Debug
 
 import Test.Program.Simple
 import Test.Program.FileServer

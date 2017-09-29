@@ -17,8 +17,8 @@ A fairly trivial session typed program can be defined as follows:
 
 ```haskell
 {-# LANGUAGE RebindableSyntax #-}
-import SessionTypes
-import SessionTypes.Indexed
+import Control.SessionTypes
+import Control.SessionTypes.Indexed
 
 prog :: STTerm m s s Int
 prog = return 0
@@ -26,10 +26,10 @@ prog = return 0
 
 For even a basic program we need to do a couple things before we can write it and have it type check.
 1. First we have to import the `SessionTypes` module that exports the most essential for writing any session typed program.
-2. Then we also import `SessionTypes.Indexed` which is a custom prelude for indexed type classes.
-3. The `SessionTypes.Indexed` module is meant to replace `Prelude`. For example, the function `return` belongs to the `IxMonad` type class that can be found in `SessionTypes.Indexed`. Of course this will result in ambiguous function errors, so we add the `RebindableSyntax` pragma.
+2. Then we also import `Control.SessionTypes.Indexed` which is a custom prelude for indexed type classes.
+3. The `Control.SessionTypes.Indexed` module is meant to replace `Prelude`. For example, the function `return` belongs to the `IxMonad` type class that can be found in `Control.SessionTypes.Indexed`. Of course this will result in ambiguous function errors, so we add the `RebindableSyntax` pragma.
 
-Option 3 is actually optional. You may also do a qualified import on `SessionTypes.Indexed`.
+Option 3 is actually optional. You may also do a qualified import on `Control.SessionTypes.Indexed`.
 
 Now that we have the right imports and set the language pragma can we begin to write a session typed program.
 A session typed program is defined in terms of `STTerm`. This is a GADT that is parameterised with a `Monad`, two capabilities (session types) and a `Type`.

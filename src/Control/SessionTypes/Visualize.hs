@@ -10,14 +10,14 @@
 -- | This module defines an interpreter for visualizing session types.
 --
 -- Using `visualize` or `visualizeP` you can create a diagram that displays a session type using a set of nodes and arrows that connect these nodes.
-module SessionTypes.Visualize (
+module Control.SessionTypes.Visualize (
   visualize,
   visualizeP,
   MkDiagram
 ) where
 
-import           SessionTypes.MonadSession
-import           SessionTypes.Types           as ST
+import           Control.SessionTypes.MonadSession
+import           Control.SessionTypes.Types           as ST
 
 import           Diagrams.Prelude hiding (Coordinates, loc)
 import           Diagrams.Backend.SVG.CmdLine

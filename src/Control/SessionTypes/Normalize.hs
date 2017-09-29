@@ -23,14 +23,14 @@
 -- A rewrite is isomorphic if we have two programs \p\ and \p'\, we can do a rewrite from \p\ to \p'\ and from \p'\ to \p\.
 --
 -- For now two types of rewrites are applied: Elimination of recursive types and flattening of branches.
-module SessionTypes.Normalize (
+module Control.SessionTypes.Normalize (
   Normalize(..),
   Flatten(..),
   ElimRec(..),
 ) where
 
-import SessionTypes.STTerm
-import SessionTypes.Types
+import Control.SessionTypes.STTerm
+import Control.SessionTypes.Types
 import Data.Proxy (Proxy (..))
 
 -- | Type class for rewriting an `STTerm` to its normal form
