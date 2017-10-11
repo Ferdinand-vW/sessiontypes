@@ -1,5 +1,5 @@
 name:                sessiontypes
-version:             0.1.0
+version:             0.1.1
 synopsis:            Session types library
 description:         This packages provides a deep embedded domain-specific language for writing session typed program.
                      A session typed program is a program annotated with session types. A session type describes a communication protocol at the type-level.
