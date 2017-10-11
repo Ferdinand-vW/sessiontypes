@@ -192,7 +192,7 @@ data Output :: Cap Type -> Type -> Type where
   O_Rec ::       Output ('Cap (s ': ctx) s) b ->        Output ('Cap ctx (R s)) b
   O_Var ::       Output ('Cap (s ': ctx) s) b ->        Output ('Cap (s ': ctx) V) b
   O_Weaken ::    Output ('Cap ctx s) b ->               Output ('Cap (t ': ctx) (Wk s)) b
-  O_Eps :: b ->  Output ('Cap ctx Eps) b
+  O_Eps :: b ->  Output ('Cap '[] Eps) b
   O_Lift ::      Output s b -> Output s b
 
 -- | Extracts all result values from a given `Output`

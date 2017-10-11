@@ -73,7 +73,3 @@ main = hspec $ do
       s `shouldBe` (O_Rec $ O_Sel1 $ O_Send "text.txt" $ O_Recv (Right "hello") $ O_Var $
                             O_Sel1 $ O_Send "doesnotexist.txt" $ O_Recv (Left "File does not exist") $ O_Lift $ O_Var $
                             O_Sel2 $ O_Sel1 $ O_Weaken $ O_Eps ["hello"])
-  
-  
-
-    

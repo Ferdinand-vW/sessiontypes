@@ -110,8 +110,8 @@ instance Monad (STTerm m s s) where
   return x = Ret x
   (Ret x) >>= f = f x
 
-instance I.IxFunctor (STTerm m) where
-  fmap f (Send a r) = Send a (I.fmap f r)
+instance Monad m => I.IxFunctor (STTerm m) where
+  fmap f st = st I.>>= \a -> I.return $ f a
 
 instance Monad m => I.IxApplicative (STTerm m) where
   pure x = Ret x

@@ -134,7 +134,6 @@ type family RemoveRecvST s where
   RemoveRecvST (Wk s) = Wk (RemoveRecvST s)
   RemoveRecvST s = s
 
-
 -- | Type family for applying a constraint to types of kind `Type` in a session type. It may be applied to a capability.
 type family HasConstraint (c :: Type -> Constraint) s :: Constraint where
   HasConstraint c ('Cap ctx s) = (HasConstraintST c s, MapHasConstraint c ctx)
