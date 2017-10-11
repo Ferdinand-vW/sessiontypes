@@ -1,3 +1,6 @@
+2017-10-11  Ferdinand van Walree 0.1.1
+* Fixed Functor definition for STTerm
+
 2017-09-29  Ferdinand van Walree 0.1.0
 
 * Initial release.
