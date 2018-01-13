@@ -7,6 +7,7 @@
 {-# LANGUAGE FlexibleInstances         #-}
 {-# LANGUAGE DefaultSignatures         #-}
 {-# LANGUAGE PolyKinds                 #-}
+{-# LANGUAGE ConstraintKinds           #-}
 -- | This module defines an interpreter for visualizing session types.
 --
 -- Using `visualize` or `visualizeP` you can create a diagram that displays a session type using a set of nodes and arrows that connect these nodes.
@@ -41,7 +42,7 @@ visualize :: forall m ctx s r a. (MonadSession m, MkDiagram s) => m ('Cap ctx s)
 visualize _ = mainWith $ mkDiagram (Proxy :: Proxy s)
 
 -- | Visualizes a given session type denoted by a Proxy.
-visualizeP :: forall s. MkDiagram s => Proxy s -> IO ()
+visualizeP :: MkDiagram s => Proxy s -> IO ()
 visualizeP p = mainWith $ mkDiagram p
 
 
@@ -302,22 +303,20 @@ to that `R` node.
 
 -}
 
--- | Type class for constructing a diagram that visualizes the session types
-class MkDiagram (s :: ST k) where
-  mkDiagram :: Proxy s -> IO (Diagram B)
+-- | Necessary type constraints for making a diagram 
+type MkDiagram s = (Coordinates s, PlaceNodes s)
 
-  default mkDiagram :: (Coordinates s, PlaceNodes s) => Proxy s -> IO (Diagram B)
-  mkDiagram p = do
-    -- place nodes in the grid
-    dstate <- dstateWNodesIO
-    -- connect the grid and build a Diagram
-    (diag, DState n _ _ d g) <- runStateT connectGrid dstate
-    -- Place arrows going from a `V` to a `R`
-    fmap fst $ runStateT connectRecursions (DState n 0 (0,0) diag g)
-    where
-      dstateWNodesIO = fmap snd $ runStateT (placeNodes p) (newDState $ newGrid (getX p) (getY p))
-
-instance (Coordinates s, PlaceNodes s) => MkDiagram s
+-- | Makes a diagram for a given session type
+mkDiagram :: MkDiagram s => Proxy s -> IO (Diagram B)
+mkDiagram p = do
+  -- place nodes in the grid
+  dstate <- dstateWNodesIO
+  -- connect the grid and build a Diagram
+  (diag, DState n _ _ d g) <- runStateT connectGrid dstate
+  -- Place arrows going from a `V` to a `R`
+  fmap fst $ runStateT connectRecursions (DState n 0 (0,0) diag g)
+  where
+    dstateWNodesIO = fmap snd $ runStateT (placeNodes p) (newDState $ newGrid (getX p) (getY p))
 
 -- | Determines size of grid based on the session types
 class Coordinates (s :: ST k) where
