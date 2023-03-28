@@ -8,6 +8,7 @@
 {-# LANGUAGE DefaultSignatures         #-}
 {-# LANGUAGE PolyKinds                 #-}
 {-# LANGUAGE ConstraintKinds           #-}
+{-# LANGUAGE FlexibleContexts          #-}
 -- | This module defines an interpreter for visualizing session types.
 --
 -- Using `visualize` or `visualizeP` you can create a diagram that displays a session type using a set of nodes and arrows that connect these nodes.

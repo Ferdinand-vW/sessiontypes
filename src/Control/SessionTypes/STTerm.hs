@@ -5,6 +5,7 @@
 {-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE PolyKinds                  #-}
 {-# LANGUAGE StandaloneDeriving         #-}
+{-# LANGUAGE RankNTypes                 #-}
 -- | This module defines a GADT `STTerm` that is the very core of this library
 --
 -- Session typed programs are constructed by composing the constructors of `STTerm`.
@@ -46,7 +47,7 @@ import Data.Typeable
 --    * Branching: `Sel1`, `Sel2`, `OffZ` and `OffS`
 --    * Recursion: `Rec`, `Weaken` and `Var`
 --    * Unsession typed: `Ret` and `Lift`
-data STTerm :: (Type -> Type) -> Cap a -> Cap a -> Type -> Type where
+data STTerm :: forall a. (Type -> Type) -> Cap a -> Cap a -> Type -> Type where
   -- | The constructor for sending messages. It is annotated with the send session type (`:!>`).
   --
   -- It takes as an argument, the message to send, of type equal to the first argument of `:!>` and the continuing `STTerm` that is session typed with the second argument of `:!>`.
@@ -107,7 +108,7 @@ instance Applicative (STTerm m s s) where
   (Ret f) <*> (Ret a) = Ret $ f a
 
 instance Monad (STTerm m s s) where
-  return x = Ret x
+  return = pure
   (Ret x) >>= f = f x
 
 instance Monad m => I.IxFunctor (STTerm m) where
